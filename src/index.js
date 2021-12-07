@@ -5,10 +5,15 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter as Router } from "react-router-dom";
 
+//wrap the context around the app
+import { ThemeProviderWrapper } from "./context/theme.context";
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <App />
+      <ThemeProviderWrapper>
+        <App />
+      </ThemeProviderWrapper>
     </Router>
   </React.StrictMode>,
   document.getElementById("root")

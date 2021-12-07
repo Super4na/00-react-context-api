@@ -1,10 +1,16 @@
 // src/components/Navbar.js
 
+//import the context hook useContext and the context object ThemeContext
+
 import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { ThemeContext } from "./../context/theme.context";
 
 function Navbar() {
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <nav className="Navbar">
+    <nav className={"Navbar " + theme}>
       <div>
         <NavLink
           to="/"
@@ -19,6 +25,9 @@ function Navbar() {
         >
           Projects
         </NavLink>
+        <button className="theme-btn" onClick={toggleTheme}>
+          {theme === "light" ? "dark 🌜" : "light 🟡"}
+        </button>
       </div>
     </nav>
   );
